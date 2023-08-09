@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <app-header></app-header>
+  </div>
+  <div class="row">
+    <div class="title">
+      <h3>Generate Summary of Payment</h3>
+      <hr />
+    </div>
+    <div id="content" #content>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <th>S.No.</th>
+            <th>Summary of Payments</th>
+            <th>Amount</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sno">1.</td>
+              <td>
+                Total Value of the Contract <br />(Incase Value/delivery of
+                items amended after signing of contract, mention that)
+              </td>
+              <td>Rs {{ transaction.contractValue }}/-</td>
+            </tr>
+            <tr>
+              <td class="sno">2.</td>
+              <td>
+                Details of Payments Made till date along with Sanction Order
+                Numbers:
+                <ol class="list-unstyled">
+                  <li *ngFor="let trans of transac; let i = index">
+                    ({{ i }}) {{ trans.transNo }} dated {{ trans.date }}
+                  </li>
+                </ol>
+                <span class="text-bold">Total payment made till date:</span>
+              </td>
+              <td>
+                <br />
+                <ul class="list-unstyled">
+                  <li *ngFor="let trans of transac; let i = index">
+                    Rs {{ trans.amount }}/-
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="sno">3.</td>
+              <td>Balance payments due to the vendor</td>
+              <td>{{ transaction.remainingBudget }}</td>
+            </tr>
+            <tr>
+              <td class="sno">4.</td>
+              <td>Value of Current proposal</td>
+              <td>Rs {{ currentProposal }}/-</td>
+            </tr>
+            <tr>
+              <td class="sno">5.</td>
+              <td>
+                Balance payments due to the vendor (-) value of current proposal
+              </td>
+              <td>Rs {{ transaction.remainingBudget - currentProposal }}/-</td>
+            </tr>
+            <tr>
+              <td class="sno">6.</td>
+              <td>Is Performance Bank Guarantee (PBG) Applicable</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td class="sno">7.</td>
+              <td>Value and Date of Expiry of PBG</td>
+              <td>
+                Rs 1,53,960/-<br />
+                DOE: 01.07.2024
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-primary" (click)="makePDF()">Generate PDF</button>
+    </div>
+  </div>
+  <br />
+</div>

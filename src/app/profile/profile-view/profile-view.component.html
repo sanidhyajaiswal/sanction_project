@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+    <app-header></app-header>
+
+    <div class="title">
+      <h3>All Projects</h3>
+      <hr />
+      <app-main-pie></app-main-pie>
+    </div>
+    <div class="panel-group" id="accordion" *ngIf="projects.length > 0">
+      <div *ngFor="let project of projects">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a
+                class="accordion-toggle"
+                data-toggle="collapse"
+                data-parent="#accordion"
+                href="#{{ project._id }}"
+                >{{ project.agencyName }}
+              </a>
+            </h4>
+          </div>
+          <div id="{{ project._id }}" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div class="row">
+                <label class="col-md-3">Agency Name:</label>
+                <div class="col-md-3">
+                  <p>{{ project.agencyName }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3">Contract Number:</label>
+                <div class="col-md-3">
+                  <p>{{ project.contractNumber }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3">Quantity:</label>
+                <div class="col-md-3">
+                  <p>{{ project.quantity }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3">Mode of Payment:</label>
+                <div class="col-md-3">
+                  <p>{{ project.modeofPayment }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3">Contract Value:</label>
+                <div class="col-md-3">
+                  <p>{{ project.contractValue }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-3">Billing Cycle:</label>
+                <div class="col-md-3">
+                  <p>{{ project.billingCycle }}</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <a
+                    class="btn btn-primary"
+                    value="Edit"
+                    [routerLink]="['/edit-profile', project._id]"
+                    >Edit</a
+                  >
+                  <input
+                    class="btn btn-danger"
+                    type="submit"
+                    value="Delete"
+                    (click)="
+                      onDelete(project._id);
+                      onDeleteTransac(project.contractNumber)
+                    "
+                    formmethod="post"
+                  />
+                  <a
+                    class="btn btn-info"
+                    value="Transaction History"
+                    [routerLink]="['/transaction', project.contractNumber]"
+                    >Transaction History</a
+                  >
+                  <a
+                    class="btn btn-success"
+                    value="sop"
+                    [routerLink]="['/sop', project.contractNumber]"
+                    >Summary of Payment</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>

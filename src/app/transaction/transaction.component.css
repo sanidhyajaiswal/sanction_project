@@ -1,0 +1,24 @@
+.transaction-profile > div {
+  padding-bottom: 10px;
+}
+
+.title {
+  padding-bottom: 20px;
+}
+
+.title hr {
+  height: 5px;
+}
+
+.thead-dark th {
+  padding: 10px;
+}
+
+.thead-dark {
+  color: #fff;
+  background-color: #212529;
+  border-color: #32383e;
+}
+.btn {
+  margin: 5px;
+}

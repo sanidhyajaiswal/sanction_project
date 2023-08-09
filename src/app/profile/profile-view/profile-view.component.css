@@ -1,0 +1,11 @@
+.panel-group {
+  margin: 80px;
+}
+
+.panel {
+  align-items: start;
+}
+
+.btn {
+  margin-right: 10px;
+}

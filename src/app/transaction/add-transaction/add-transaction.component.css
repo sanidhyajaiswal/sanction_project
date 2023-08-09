@@ -1,0 +1,11 @@
+.create-profile > div {
+  padding-bottom: 10px;
+}
+
+.title {
+  padding-bottom: 20px;
+}
+
+.title hr {
+  height: 5px;
+}

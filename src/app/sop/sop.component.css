@@ -1,0 +1,41 @@
+.table {
+  font-family: "Garamond", Serif;
+}
+
+.table tbody {
+  font-size: 125%;
+  font-weight: 500;
+}
+
+.table thead th {
+  font-family: "Garamond", serif;
+  font-weight: 700;
+  font-size: 130%;
+  text-decoration: underline;
+  text-align: center;
+  align-items: center;
+}
+
+.table .sno {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+#content {
+  width: 595px;
+
+  height: 842px;
+}
+.table {
+  max-width: 2480px;
+  width: 100%;
+}
+.table td {
+  width: auto;
+  overflow: hidden;
+  word-wrap: break-word;
+}

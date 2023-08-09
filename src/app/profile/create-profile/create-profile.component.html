@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="row">
+    <app-header></app-header>
+    <div class="title">
+      <h3>Create Project</h3>
+      <hr />
+    </div>
+
+    <form
+      class="create-profile"
+      (submit)="onAddProject(postForm); onAddTransaction(postForm)"
+      #postForm="ngForm"
+    >
+      <div *ngFor="let item of createForm">
+        <div class="row">
+          <label class="col-md-3" for="agencyName">{{
+            item["labelName"]
+          }}</label>
+          <div class="col-md-3">
+            <input
+              [type]="item['type']"
+              class="form-control"
+              [name]="item['inputName']"
+              [ngModel]="item['value']"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="billingCycle" class="col-md-3">Billing Cycle:</label>
+        <div class="col-md-3">
+          <select
+            class="form-control"
+            id="billingCycle"
+            [(ngModel)]="selectedVal"
+            name="billingCycle"
+            #dropdown
+            required
+            [value]="selectedVal"
+          >
+            <option [value]="billingC[0]">Weekly</option>
+            <option [value]="billingC[1]">Monthly</option>
+            <option [value]="billingC[2]">Quarterly</option>
+            <option [value]="billingC[3]">Bi-Annually</option>
+            <option [value]="billingC[4]">Annually</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <label for="bankGuarantee" class="col-md-3">Bank Guarantee:</label>
+        <div class="col-md-3">
+          <button
+            class="btn btn-red"
+            type="button"
+            (click)="filePicker.click()"
+          >
+            Upload File
+          </button>
+          <input
+            type="file"
+            id="bankGuarantee"
+            name="bankGuarantee"
+            accept=".pdf,.doc,.docx"
+            maxlength="52428800"
+            #filePicker
+            (change)="onFilePicked($event)"
+          />
+        </div>
+      </div>
+
+      <div *ngFor="let item of customFields; let i = index">
+        <div class="row">
+          <label class="col-md-3" for="">{{ item["labelName"] }}:</label>
+          <div class="col-md-3">
+            <input
+              [type]="item['text']"
+              class="form-control"
+              [name]="item['inputName']"
+              [ngModel]="item['value']"
+              required
+            />
+          </div>
+          <div class="col-md-3">
+            <input
+              class="btn btn-danger"
+              value="Remove"
+              type="button"
+              (click)="deleteFieldForm(i)"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <input class="btn btn-success" type="submit" value="SUBMIT" />
+        </div>
+      </div>
+    </form>
+    <form
+      name="myForm"
+      #addField="ngForm"
+      (ngSubmit)="addFieldForm(addField.value); addField.reset()"
+    >
+      <div class="row">
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            name="newField"
+            ngModel
+            required
+          />
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-primary" type="submit">Add Field</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

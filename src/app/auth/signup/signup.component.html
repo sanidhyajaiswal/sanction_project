@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Sign up</h2>
+  <form (submit)="onSignup(SignupForm)" #SignupForm="ngForm">
+    <input
+      id="user"
+      type="text"
+      name="username"
+      placeholder="Username"
+      required
+      ngModel
+      #usernameInput="ngModel"
+    />
+    <input
+      id="pass"
+      type="password"
+      name="password"
+      placeholder="Password"
+      required
+      ngModel
+      #passwordInput="ngModel"
+    />
+    <div><button type="submit">SignUp</button></div>
+  </form>
+</div>

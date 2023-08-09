@@ -1,0 +1,145 @@
+<div class="container">
+  <div class="row">
+    <app-header></app-header>
+    <div class="title">
+      <h3>Profile Details</h3>
+      <hr />
+    </div>
+
+    <form class="transaction-profile">
+      <div class="row">
+        <label class="col-md-3" for="agencyName">Agency Name</label>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            name="agencyName"
+            required
+            [ngModel]="project?.agencyName"
+            readonly
+          />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-3" for="agencyName">Contract Number</label>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            name="contractNumber"
+            required
+            [ngModel]="project?.contractNumber"
+            readonly
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="col-md-3" for="agencyName">Quantity</label>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            name="quantity"
+            required
+            [ngModel]="project?.quantity"
+            readonly
+          />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-3" for="agencyName">Mode of Payment</label>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            name="modeofPayment"
+            required
+            [ngModel]="project?.modeofPayment"
+            readonly
+          />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-3" for="agencyName">Contract Value</label>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            name="contractValue"
+            required
+            readonly
+            [ngModel]="project?.contractValue"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="billingCycle" class="col-md-3">Billing Cycle:</label>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            name="billingCycle"
+            required
+            [ngModel]="project?.billingCycle"
+            readonly
+          />
+        </div>
+      </div>
+      <div class="row">
+        <label for="bankGuarantee" class="col-md-3">Bank Guarantee:</label>
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            name="bankGuarantee"
+            required
+            [ngModel]="project?.bankGuarantee"
+            readonly
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <br />
+  <div class="row">
+    <div class="title">
+      <h3>Transaction History</h3>
+      <hr />
+    </div>
+    <div class="transaction">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <th>S.no.</th>
+            <th>Transaction No.</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let trans of transaction; let i = index">
+              <td>{{ i + 1 }}.</td>
+              <td>{{ trans.transNo }}</td>
+              <td>{{ trans.date }}</td>
+              <td>{{ trans.amount }}</td>
+              <td class="col-md-2">
+                <a class="btn btn-primary" value="Edit">Edit</a>
+                <input
+                  class="btn btn-danger"
+                  type="submit"
+                  value="Delete"
+                  formmethod="post"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <app-add-transaction></app-add-transaction>
+  <br />
+  <br />
+</div>
